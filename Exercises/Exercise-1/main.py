@@ -31,7 +31,7 @@ def main():
 
         if (r.status_code == 200):
             with open(filename, 'wb') as fd:
-                for chunk in r.iter_content(chunk_size=128):
+                for chunk in r.iter_content(chunk_size=10240):
                     fd.write(chunk)
                 print("Downloaded file {}".format(filename))
             zipfile.ZipFile(filename).extractall()
